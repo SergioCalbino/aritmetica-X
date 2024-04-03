@@ -5,8 +5,11 @@ import (
 	"examen_server/controller"
 	"examen_server/models"
 	"fmt"
+	"log"
 	"math"
 	"net"
+	"os"
+	"strconv"
 )
 
 // OperationType representa el tipo de operación
@@ -95,7 +98,21 @@ func handleClient(conn net.Conn) {
 			}
 		}
 
-		fmt.Println("Este es el request del server", request)
+		resultStr := newUser.Username + " ha realizado una operacion de : " +
+			strconv.FormatFloat(request.Num1, 'f', 5, 64) + " " +
+			strconv.Itoa(int(request.Op)) + " " +
+			strconv.FormatFloat(request.Num2, 'f', 5, 64)
+
+		file, err := os.OpenFile("operation.txt", os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0644)
+		if err != nil {
+			log.Fatal(err)
+		}
+		defer file.Close()
+
+		_, errWrite := file.Write([]byte(resultStr + "\n"))
+		if errWrite != nil {
+			log.Fatal(errWrite)
+		}
 
 		switch request.Op {
 		case SUM:

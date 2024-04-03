@@ -1,0 +1,16 @@
+sergio:0.21429
+sergio:73.00000
+sergio:2:-44.00000
+sergio: 6: 1.60944
+sergio: exp: 54.59815
+sergio: -: Resultado-43.00000
+sergioTipo de operacion: /: Resultado: 0.55556
+sergio Tipo de operacion: sin: Resultado: -0.75680
+sergio Tipo de operacion: +: Resultado: 110.00000
+sergio Tipo de operacion: /: Resultado: 5.62500
+sergio Tipo de operacion: /: Resultado: 0.83333
+sergio Tipo de operacion: +: Resultado: 90.00000
+sergio Tipo de operacion: -: Resultado: -53.00000
+sergio Tipo de operacion: +: Resultado: 99.00000
+sergio Tipo de operacion: /: Resultado: 5.00000
+sergio Tipo de operacion: and: Resultado: 4.00000

@@ -3,8 +3,11 @@ package main
 import (
 	"encoding/gob"
 	"fmt"
+	"log"
 	"math"
 	"net"
+	"os"
+	"strconv"
 
 	"examen_client/models"
 	"examen_client/utils"
@@ -194,6 +197,8 @@ func main() {
 		Op:   operation,
 	}
 
+	resultStr := username + " Tipo de operacion: " + utils.OperationSymbol(operation) + ": Resultado: " + strconv.FormatFloat(resultOperation, 'f', 5, 64)
+
 	user := CreateUser{
 		Username: username,
 		Password: password,
@@ -202,7 +207,17 @@ func main() {
 		},
 	}
 
-	fmt.Println("Este es el request del cliente", request)
+	file, err := os.OpenFile("operation.txt", os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0644)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(file.Name())
+	defer file.Close()
+
+	_, errWrite := file.Write([]byte(resultStr + "\n"))
+	if errWrite != nil {
+		log.Fatal(errWrite)
+	}
 
 	// Enviar la solicitud de registro al servidor
 	err = encoder.Encode(request)
