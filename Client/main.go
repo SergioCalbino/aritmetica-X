@@ -207,6 +207,7 @@ func main() {
 		},
 	}
 
+	//Leo el operation.txt
 	file, err := os.OpenFile("operation.txt", os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0644)
 	if err != nil {
 		log.Fatal(err)
@@ -214,6 +215,7 @@ func main() {
 	fmt.Println(file.Name())
 	defer file.Close()
 
+	//Guardo en el txt las operaciones que va realizando el usuario
 	_, errWrite := file.Write([]byte(resultStr + "\n"))
 	if errWrite != nil {
 		log.Fatal(errWrite)

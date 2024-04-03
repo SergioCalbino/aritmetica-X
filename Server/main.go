@@ -98,6 +98,8 @@ func handleClient(conn net.Conn) {
 			}
 		}
 
+		//Leo el operation.txt
+
 		resultStr := newUser.Username + " ha realizado una operacion de : " +
 			strconv.FormatFloat(request.Num1, 'f', 5, 64) + " " +
 			strconv.Itoa(int(request.Op)) + " " +
@@ -109,6 +111,7 @@ func handleClient(conn net.Conn) {
 		}
 		defer file.Close()
 
+		//Guardo en el txt las operaciones que va realizando el usuario
 		_, errWrite := file.Write([]byte(resultStr + "\n"))
 		if errWrite != nil {
 			log.Fatal(errWrite)

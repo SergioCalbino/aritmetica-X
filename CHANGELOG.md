@@ -28,7 +28,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - El cliente lee las operaciones desde el archivo **operation.txt** y las envia una por una al server
   - El server debe tener una bitacoria con las operaciones procesadas, se puede utilizar biblioteas externas
 
-## [0.0.3] - 2024-04-02
+## [0.1.3] - 2024-04-03
 
 ### Removed
 
@@ -101,6 +101,8 @@ Quedo implementado en la version 0.0.2
 Se implemento una base de datos y un registro de usuario y contraseña
 Ahora se almacena cada operacion que realiza el usuario. Evita usuarios repetidos
 Se almacenan las operaciones que hace el usuario. El register y login estan implementados en la misma funcion. El sistema detecta si el usuario ya esta o no registrado
+
+// Se agrego un archivo txt tanto del cliente como del servido que va guardando los registros que va realiazando el usuario
 ### Fixed
 
 ### Added
